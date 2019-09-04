@@ -11,13 +11,16 @@ const climbStairs = n => {
     return n;
   }
 
-  const answers = [0, 1, 2, 3];
+  let first = 1;
+  let second = 2;
 
-  for (let i = 4; i <= n; i++) {
-    answers.push(answers[i - 1] + answers[i - 2]);
+  for (let i = 3; i <= n; i++) {
+    const third = first + second;
+    first = second;
+    second = third;
   }
 
-  return answers[answers.length - 1];
+  return second;
 };
 
 module.exports = climbStairs;
